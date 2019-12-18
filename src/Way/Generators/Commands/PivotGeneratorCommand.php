@@ -40,7 +40,7 @@ class PivotGeneratorCommand extends Command {
      */
     public function sortDesiredTables()
     {
-        $tables = array_except(array_map('str_singular', $this->argument()), 'command');
+        $tables = Arr::except(array_map('Str::singular', $this->argument()), 'command');
 
         sort($tables);
 
@@ -58,9 +58,9 @@ class PivotGeneratorCommand extends Command {
     {
         return implode(', ', [
             "{$tableOne}_id:integer:unsigned:index",
-            "{$tableOne}_id:foreign:references('id'):on('" . str_plural($tableOne) . "'):onDelete('cascade')",
+            "{$tableOne}_id:foreign:references('id'):on('" . Str::plural($tableOne) . "'):onDelete('cascade')",
             "{$tableTwo}_id:integer:unsigned:index",
-            "{$tableTwo}_id:foreign:references('id'):on('" . str_plural($tableTwo) . "'):onDelete('cascade')",
+            "{$tableTwo}_id:foreign:references('id'):on('" . Str::plural($tableTwo) . "'):onDelete('cascade')",
         ]);
     }
 

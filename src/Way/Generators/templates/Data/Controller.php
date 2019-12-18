@@ -62,7 +62,7 @@ class Controller {
      */
     private function getResource()
     {
-        return str_singular($this->getCollection()); // lesson
+        return Str::singular($this->getCollection()); // lesson
     }
 
     /**

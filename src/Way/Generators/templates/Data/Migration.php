@@ -78,7 +78,7 @@ class Migration {
      */
     private function getClass()
     {
-        return ucwords(camel_case($this->migrationName));
+        return ucwords(Str::camel($this->migrationName));
     }
 
     /**
